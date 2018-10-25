@@ -57,9 +57,3 @@ const person = {
 
 person.sayHello();
 
-/* Spread Operator */
-const lenguajes = ['JavaScript', 'PHP', 'Python'];
-const frameworks = ['ReactJS', 'Laravel', 'DJango'];
-
-const combinacion = [...lenguajes, ...frameworks];
-console.log('Combinacion: ', combinacion);
