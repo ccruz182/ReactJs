@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 
 class Producto extends Component {
-  render() {    
+  render() {     
+    const {nombre, precio} = this.props.datos;
     return (
       <div>
-        <h1>{this.props.datos['nombre']}</h1>
-        <h3>{this.props.datos['precio']}</h3>
+        <h1>{nombre}</h1>
+        <h3>Precio: ${precio}</h3>
       </div>
     );
   }
