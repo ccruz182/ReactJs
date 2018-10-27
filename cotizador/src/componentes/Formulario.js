@@ -1,8 +1,30 @@
 import React, { Component } from "react";
 
-import { Button, Dropdown, Form } from "semantic-ui-react";
+import { Button, Dropdown, Form, Radio } from "semantic-ui-react";
 
 class Formulario extends Component {
+  marca = 0;
+  anio = 0;
+  tipo = 0;
+
+  cotizarSeguro(e) {
+    e.preventDefault();
+    /* refs: son para leer los valores de los campos de un formulario */
+    console.log(this.marca, this.anio, this.tipo);
+  }
+
+  marcaListener(event, data) {
+    this.marca = data.value;
+  }
+
+  anioListener(event, data) {
+    this.anio = data.value;
+  }
+
+  tipoListener(event, data) {
+    this.tipo = data.value;
+  }
+
   render() {
     const marcas = [
       { key: 1, text: "Americano", value: 1 },
@@ -23,7 +45,7 @@ class Formulario extends Component {
     }
 
     return (
-      <Form>
+      <Form onSubmit={this.cotizarSeguro.bind(this)}>
         <Form.Field>
           <label>Marca: </label>
           <Dropdown
@@ -31,6 +53,7 @@ class Formulario extends Component {
             options={marcas}
             selection
             placeholder="Seleccione marca"
+            onChange={this.marcaListener.bind(this)}
           />
         </Form.Field>
 
@@ -41,14 +64,25 @@ class Formulario extends Component {
             options={anios}
             selection
             placeholder="Seleccione año"
+            onChange={this.anioListener.bind(this)}
           />
         </Form.Field>
 
         <Form.Field>
           <Form.Group inline>
             <label>Plan: </label>
-            <Form.Radio label="Basico" value="1" />
-            <Form.Radio label="Completo" value="2" />
+            <Form.Field 
+              control={Radio} 
+              label="Basico" 
+              value="1" 
+              onChange={this.tipoListener.bind(this)}
+            />
+            <Form.Field 
+              control={Radio} 
+              label="Completo" 
+              value="2"
+              onChange={this.tipoListener.bind(this)}
+            />
           </Form.Group>
         </Form.Field>
 
