@@ -7,21 +7,29 @@ class Formulario extends Component {
   anio = 0;
   tipo = 0;
 
-  cotizarSeguro(e) {
+  cotizarSeguro = e => {
     e.preventDefault();
-    /* refs: son para leer los valores de los campos de un formulario */
-    console.log(this.marca, this.anio, this.tipo);
-  }
+    
+    /* Creación del objeto a regresar a padre */
+    const infoAuto = {
+      marca: this.marca,
+      anio: this.anio,
+      tipo: this.tipo
+    };
 
-  marcaListener(event, data) {
+    /* Retorno de datos */
+    this.props.cotizarSeguro(infoAuto);    
+  };
+
+  marcaListener = (event, data) => {
     this.marca = data.value;
-  }
+  };
 
-  anioListener(event, data) {
+  anioListener = (event, data) => {
     this.anio = data.value;
   }
 
-  tipoListener(event, data) {
+  tipoListener = (event, data) => {
     this.tipo = data.value;
   }
 
@@ -45,7 +53,7 @@ class Formulario extends Component {
     }
 
     return (
-      <Form onSubmit={this.cotizarSeguro.bind(this)}>
+      <Form onSubmit={this.cotizarSeguro}>
         <Form.Field>
           <label>Marca: </label>
           <Dropdown
@@ -53,7 +61,7 @@ class Formulario extends Component {
             options={marcas}
             selection
             placeholder="Seleccione marca"
-            onChange={this.marcaListener.bind(this)}
+            onChange={this.marcaListener}
           />
         </Form.Field>
 
@@ -64,24 +72,24 @@ class Formulario extends Component {
             options={anios}
             selection
             placeholder="Seleccione año"
-            onChange={this.anioListener.bind(this)}
+            onChange={this.anioListener}
           />
         </Form.Field>
 
         <Form.Field>
           <Form.Group inline>
             <label>Plan: </label>
-            <Form.Field 
-              control={Radio} 
-              label="Basico" 
-              value="1" 
-              onChange={this.tipoListener.bind(this)}
+            <Form.Field
+              control={Radio}
+              label="Basico"
+              value="1"
+              onChange={this.tipoListener}
             />
-            <Form.Field 
-              control={Radio} 
-              label="Completo" 
+            <Form.Field
+              control={Radio}
+              label="Completo"
               value="2"
-              onChange={this.tipoListener.bind(this)}
+              onChange={this.tipoListener}
             />
           </Form.Group>
         </Form.Field>
