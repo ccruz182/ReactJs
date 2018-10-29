@@ -13,3 +13,18 @@ center {
 form {
   padding: 20px;
 }
+
+#resumen > *{
+  padding: 15px;
+}
+
+#resumen div {
+  background-color: #0D9C88;
+  color: white;
+  font-weight: bold;
+}
+
+#resumen div .ui {
+  color: whitesmoke;
+  font-weight: bold;
+}
