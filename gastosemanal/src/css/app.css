@@ -1,0 +1,14 @@
+body {
+  background-color: #201854;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#contenido > div {
+  padding: 10px;
+}
+
+#contenido > div > form > h2 {
+  color: black;
+}
+
