@@ -25,6 +25,7 @@ class Formulario extends Component {
     };
 
     /* Se envía vía props */
+    this.props.agregarGasto(gasto);
 
     /* Se resetea el formulario */
     event.currentTarget.reset();
