@@ -12,3 +12,12 @@ body {
   color: black;
 }
 
+#contenido > div > div {
+  color: black;
+}
+
+#internalGrid > div > .six {
+  background-color: #201854;
+  color: white;
+  font-weight: bold;
+}
