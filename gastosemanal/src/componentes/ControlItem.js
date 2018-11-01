@@ -4,8 +4,7 @@ import { Message } from "semantic-ui-react";
 
 class ControlItem extends Component {
   render() {
-    const tipo = this.props.tipo;
-    console.log(tipo);
+    const tipo = this.props.tipo;       
     return (
       <div>
         <Message color={tipo}>

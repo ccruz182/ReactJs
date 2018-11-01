@@ -12,8 +12,8 @@ import { validarPresupuesto } from "../helpers/presupuestoHelper";
 
 class App extends Component {
   state = {
-    presupuesto: 0,
-    restante: 0,
+    presupuesto: "",
+    restante: "",
     gastos: {}
   };
 

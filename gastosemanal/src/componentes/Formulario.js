@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 import { Button, Form, Icon } from "semantic-ui-react";
 
@@ -46,6 +47,10 @@ class Formulario extends Component {
       </Form>
     );
   }
+}
+
+Formulario.propTypes = {
+  agregarGasto: PropTypes.func.isRequired
 }
 
 export default Formulario;

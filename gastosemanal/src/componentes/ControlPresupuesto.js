@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 import ControlItem from './ControlItem';
 
 class ControlPresupuesto extends Component {
-  render () {
+  render () {    
     return (
       <div id='controlPresupuesto'>
         <ControlItem tipo='blue' titulo='Presupuesto' cantidad={this.props.presupuesto}/>
@@ -11,6 +12,12 @@ class ControlPresupuesto extends Component {
       </div>
     );
   }
+}
+
+ControlPresupuesto.propTypes = {
+  tipo: PropTypes.string.isRequired,
+  presupuesto: PropTypes.string.isRequired,
+  restante: PropTypes.string.isRequired
 }
 
 export default ControlPresupuesto;
