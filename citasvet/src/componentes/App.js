@@ -5,6 +5,15 @@ import AgregarCita from './AgregarCita';
 import Header from './Header';
 
 class App extends Component {
+  state = {
+    citas: []
+  }
+
+  crearCita = (cita) => {
+    const citas = [...this.state.citas, cita];
+    this.setState({citas});
+  }
+
   render() {
     return (
       <div>
@@ -16,7 +25,7 @@ class App extends Component {
               <Row>
                 <Col m={1}></Col>
                 <Col m={5}>
-                  <AgregarCita />
+                  <AgregarCita crearCita={this.crearCita}/>
                 </Col>                
                 <Col m={5}>
                   Admon
