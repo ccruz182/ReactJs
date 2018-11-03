@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-import { Button, Input } from "react-materialize";
+import { Button, Chip, Input } from "react-materialize";
 import uuid from "uuid";
 
 class AgregarCita extends Component {
+  state = {
+    error: false
+  };
+
   datosFormulario = {};
 
   obtenerDatosInput = (event, data, num) => {
@@ -21,13 +25,37 @@ class AgregarCita extends Component {
       sintomas: this.datosFormulario[5]
     };
 
-    /* Envío de datos al padre */
-    this.props.crearCita(cita);
+    let k = "";
+    let error = false;
+    
+    for (k in cita) {
+      if (cita[k] === undefined || cita[k] === "") {
+        this.setState({ error: true });
+        error = true;
+        break;
+      }
+    }
 
-    event.currentTarget.reset();
+    if (!error) {
+      /* Envío de datos al padre */
+      this.props.crearCita(cita);
+
+      /* No existió problema. Error a falso */
+      this.setState({error: false});
+      
+      console.log(event.currentTarget);
+      window.location.reload();
+    }
   };
 
   render() {
+    let mensajeError =
+     <Chip>Campos vacíos. Favor de llenar todos los campos</Chip>;
+
+    if (!this.state.error) {
+      mensajeError = null;
+    }
+
     return (
       <form onSubmit={this.cargaDatos}>
         <h5>Ingresa los datos aquí</h5>
@@ -66,7 +94,8 @@ class AgregarCita extends Component {
           onChange={(event, data) => this.obtenerDatosInput(event, data, 5)}
         />
 
-        <Button waves="yellow">Añadir</Button>
+        <Button waves="yellow">Añadir</Button>        
+        {mensajeError}
       </form>
     );
   }

@@ -4,6 +4,8 @@ import {Col, Row} from 'react-materialize';
 import AgregarCita from './AgregarCita';
 import Header from './Header';
 
+import '../css/app.css'
+
 class App extends Component {
   state = {
     citas: []
