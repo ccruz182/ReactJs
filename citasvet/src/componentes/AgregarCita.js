@@ -42,9 +42,8 @@ class AgregarCita extends Component {
 
       /* No existió problema. Error a falso */
       this.setState({error: false});
-      
-      console.log(event.currentTarget);
-      window.location.reload();
+            
+      // window.location.reload();
     }
   };
 

@@ -3,3 +3,16 @@ form > .chip {
   color: white;
   margin-top: 5%;
 }
+
+.detalleCita {
+  height: 10%;
+  text-align: left
+}
+
+.eliminaCita {
+  background-color: red;
+}
+
+.eliminaCita:hover {
+  background-color: #ff5555;
+}
