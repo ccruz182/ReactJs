@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Card } from "react-materialize";
+import PropTypes from 'prop-types';
 
 class DetalleCita extends Component {
   render() {
@@ -37,6 +38,11 @@ class DetalleCita extends Component {
       />
     );
   }
+}
+
+DetalleCita.propTypes = {  
+  informacion: PropTypes.object.isRequired,
+  eliminaCita: PropTypes.func.isRequired
 }
 
 export default DetalleCita;

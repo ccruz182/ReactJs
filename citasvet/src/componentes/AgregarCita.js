@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Chip, Input } from "react-materialize";
 import uuid from "uuid";
+import PropTypes from 'prop-types';
 
 class AgregarCita extends Component {
   state = {
@@ -99,5 +100,9 @@ class AgregarCita extends Component {
     );
   }
 }
+
+AgregarCita.propTypes = {
+  crearCita: PropTypes.func.isRequired
+};
 
 export default AgregarCita;
