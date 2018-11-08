@@ -2,30 +2,55 @@ import React, { Component } from "react";
 
 import { Grid, Responsive, Segment } from "semantic-ui-react";
 
+import Clima from "./componentes/Clima"
 import Encabezado from "./componentes/Encabezado";
 import Error from './componentes/Error';
 import Formulario from "./componentes/Formulario";
 
 class App extends Component {
-  state = {    
-    consulta: {},
-    error: false
+  state = {        
+    error: false,
+    resultado: {}
+  }
+
+  consultarAPI = (datos) => {      
+    const {ciudad, pais} = datos;
+    const APIkey = "564c56a94c68e2f3b69936341fe67892";
+
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${APIkey}`
+    console.log('url', url);
+
+    fetch(url).then(respuesta => {
+      return respuesta.json();
+    }).then(datosClima => {
+      this.setState({
+        resultado: datosClima
+      });
+    }).catch(error => {
+      console.log(error);
+    });
   }
 
   datosConsulta = (datos) => {    
     if (datos.ciudad === '' || datos.pais === '') {
       this.setState({error: true});
-    } else {
+    } else {      
       this.setState({error: false});
+      this.consultarAPI(datos);     
     }
   }
 
 
   render() {
     let resultado = null;
+    let obj = {...this.state.resultado};
 
     if (this.state.error) {
       resultado = <Error />
+    }
+
+    if (!(Object.keys(obj).length === 0 && obj.constructor === Object)) {
+      resultado = <Clima datos={this.state.resultado}/>
     }
     return (
       <Segment.Group>
