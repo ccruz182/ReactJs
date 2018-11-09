@@ -17,8 +17,7 @@ class App extends Component {
     const {ciudad, pais} = datos;
     const APIkey = "564c56a94c68e2f3b69936341fe67892";
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${APIkey}`
-    console.log('url', url);
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${APIkey}`    
 
     fetch(url).then(respuesta => {
       return respuesta.json();
