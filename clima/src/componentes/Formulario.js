@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import PropTypes from 'prop-types';
+
 import {
   Button,
   Dropdown,
@@ -148,6 +150,10 @@ class Formulario extends Component {
       </Segment.Group>
     );
   }
+}
+
+Formulario.propTypes = {
+  datosConsulta: PropTypes.func.isRequired
 }
 
 export default Formulario;

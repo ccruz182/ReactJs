@@ -26,11 +26,12 @@ class App extends Component {
         resultado: datosClima
       });
     }).catch(error => {
-      console.log(error);
+      console.log('Error', error);
     });
   }
 
-  datosConsulta = (datos) => {    
+  datosConsulta = (datos) => { 
+    console.log(datos.ciudad === '');   
     if (datos.ciudad === '' || datos.pais === '') {
       this.setState({error: true});
     } else {      
@@ -46,9 +47,7 @@ class App extends Component {
 
     if (this.state.error) {
       resultado = <Error />
-    }
-
-    if (!(Object.keys(obj).length === 0 && obj.constructor === Object)) {
+    } else if (!(Object.keys(obj).length === 0 && obj.constructor === Object)) {
       resultado = <Clima datos={this.state.resultado}/>
     }
     return (

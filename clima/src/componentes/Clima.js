@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 import { Card, Divider, Message } from "semantic-ui-react";
 
@@ -6,10 +7,8 @@ class Clima extends Component {
   mostrarResultado = () => {
     const { main, name, sys, weather } = this.props.datos;
 		
-		const kelvin = 273.15;
-
-		const urlIcono = `http://openweathermap.org/img/w/${weather[0].icon}.png`		
-
+    const kelvin = 273.15;
+    
     if (!name) {
       return (
         <center>
@@ -22,6 +21,8 @@ class Clima extends Component {
         </center>
       );
     }
+
+    const urlIcono = `http://openweathermap.org/img/w/${weather[0].icon}.png`		
 
     return (
       <center>
@@ -45,10 +46,12 @@ class Clima extends Component {
   };
 
   render() {
-    console.log(this.props.datos);
-    const { main, name, sys } = this.props.datos;
     return <div>{this.mostrarResultado()}</div>;
   }
+}
+
+Clima.propTypes = {
+	datos: PropTypes.object.isRequired
 }
 
 export default Clima;
