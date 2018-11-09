@@ -17,8 +17,7 @@ code {
   text-align: center;
 }
 
-.app .card {
-  width: 20%;  
+.app .card {   
   border-color: red;
   display: inline-block;
   margin: 5%;  
