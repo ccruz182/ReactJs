@@ -1,9 +1,9 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 import { Button, Card, Image } from "semantic-ui-react";
 
-const Noticia = props => {
-  console.log(props.informacion);
+const Noticia = props => {  
   const { description, title, url, urlToImage } = props.informacion;
 
   return (
@@ -19,5 +19,9 @@ const Noticia = props => {
     </Card>
   );
 };
+
+Noticia.propTypes = {
+  informacion: PropTypes.object.isRequired
+}
 
 export default Noticia;

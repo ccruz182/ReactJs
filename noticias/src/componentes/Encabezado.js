@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Encabezado = props => {
   return (
@@ -6,6 +7,10 @@ const Encabezado = props => {
       {props.titulo}
     </h2>
   );
+};
+
+Encabezado.propTypes = {
+  titulo: PropTypes.string.isRequired
 };
 
 export default Encabezado;

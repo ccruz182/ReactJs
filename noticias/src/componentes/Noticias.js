@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 import { Container, Grid } from "semantic-ui-react";
 
@@ -20,5 +21,9 @@ class Noticias extends Component {
     );
   }
 }
+
+Noticias.propTypes = {
+  noticias: PropTypes.array.isRequired
+};
 
 export default Noticias;
