@@ -8,6 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   background-color: #e1f7e7;
+  padding: 1%;
 }
 
 code {
@@ -28,4 +29,15 @@ code {
 
 .relleno {
   width: 2%;
+  height: 1em;
+}
+
+
+.eventos {
+  padding: 2%;
+  margin-top: 3%;
+}
+
+.evento {
+  margin: 2%;
 }

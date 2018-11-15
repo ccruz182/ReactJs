@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { Grid } from "semantic-ui-react";
 
 import Encabezado from "./componentes/Encabezado";
+import Eventos from "./componentes/Eventos";
 import Formulario from "./componentes/Formulario";
 
 class App extends Component {
@@ -65,6 +67,9 @@ class App extends Component {
           optCategoria={this.opciones}
           obtenerEventos={this.obtenerEventos}
         />
+        <Grid>
+          <Eventos eventos={this.state.eventos}/>
+        </Grid>
       </div>
     );
   }
