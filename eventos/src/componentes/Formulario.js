@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Dropdown, Form } from "semantic-ui-react";
+import PropTypes from 'prop-types';
 
 class Formulario extends Component {
   valoresFormulario = ["", ""];
@@ -47,6 +48,10 @@ class Formulario extends Component {
       </Form>
     );
   }
+}
+
+Formulario.propTypes = {
+  obtenerEventos: PropTypes.func.isRequired
 }
 
 export default Formulario;

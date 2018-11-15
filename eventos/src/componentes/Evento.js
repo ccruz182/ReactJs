@@ -1,13 +1,16 @@
 import React from "react";
-import { Button, Card } from "semantic-ui-react";
+import { Button, Card, Image } from "semantic-ui-react";
+import PropTypes from 'prop-types';
 
 const Evento = props => {
   return (
     <Card className="evento">
+      <Image src={props.informacion.logoUrl} />
       <Card.Content>
         <Card.Header>{props.informacion.nombre}</Card.Header>
         <Card.Description>
-          {props.informacion.descripcion.text.substr(0, 100)}...
+          {props.informacion.descripcion.text.substr(0, 100)}
+          ...
         </Card.Description>
       </Card.Content>
 
@@ -18,6 +21,10 @@ const Evento = props => {
       </Card.Content>
     </Card>
   );
+};
+
+Evento.propTypes = {
+  informacion: PropTypes.object.isRequired
 };
 
 export default Evento;
