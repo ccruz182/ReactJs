@@ -4,6 +4,7 @@ import { Button, Dropdown, Form } from "semantic-ui-react";
 
 class Formulario extends Component {
   valores = ["", ""];
+  nombreMonedas = ["", ""]
 
   render() {
     const monedas = [
@@ -16,7 +17,7 @@ class Formulario extends Component {
     const criptoMonedas = this.cargaCriptoMonedas();
 
     return (
-      <Form>
+      <Form onSubmit={this.cotizarMonedas}>
         <Form.Field>
           <label>Moneda</label>
           <Dropdown
@@ -63,9 +64,22 @@ class Formulario extends Component {
   };
 
   dropdownListener = (event, data, type) => {
-    this.valores[type] = data.value;
-    console.log("Valores", this.valores);
+    this.valores[type] = data.value;        
   };
+
+  cotizarMonedas = (event) => {
+    event.preventDefault();
+    const cotizacion = {
+      moneda: this.valores[0],
+      crypto: this.valores[1]      
+    }
+
+    this.props.cotizar(cotizacion);
+  }
+}
+
+Formulario.propTypes = {
+  cotizar: PropTypes.func.isRequired  
 }
 
 export default Formulario;
