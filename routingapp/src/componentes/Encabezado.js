@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Header } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+
 
 const Encabezado = props => {
   return (
     <Header as="h2" textAlign="center" style={{ color: "white", padding: "3%" }}>
-      {props.titulo}
+      <Link to="/">{props.titulo}</Link>
     </Header>
   );
 };

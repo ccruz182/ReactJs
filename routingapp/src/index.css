@@ -13,3 +13,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+nav > a {
+  color: white;
+  margin: 3%;
+  padding: 4%;
+  font-size: 1.5em;
+}
+
+.contenido {
+  padding: 3%;
+}
+
+.form-contacto {
+  padding: 0.5em;
+}
+
+.activo {
+  color: coral;
+}
+
+.buscador {
+  margin: 2%;
+}
