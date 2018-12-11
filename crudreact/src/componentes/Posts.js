@@ -9,7 +9,7 @@ class Posts extends Component {
     const jsxPosts = [];
 
     Object.keys(this.props.posts).map(item => {
-      jsxPosts.push(<Post key={item} info={thePosts[item]} />);
+      jsxPosts.push(<Post key={item} info={thePosts[item]} borrar={this.props.borrar}/>);
     });
 
     return (

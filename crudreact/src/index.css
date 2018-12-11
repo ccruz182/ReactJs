@@ -16,3 +16,7 @@ code {
 .navegacion > a {
   margin-right: 1.2rem;
 }
+
+.nuevoForm {
+  margin: 3%;
+}
