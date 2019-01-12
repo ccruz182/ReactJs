@@ -3,6 +3,7 @@ import { Button, Card, Container, Message } from "semantic-ui-react";
 import axios from "axios";
 
 import Buscador from "./Buscador";
+import LoginRequerido from "./LoginRequerido";
 import Producto from "./Producto";
 
 class Productos extends Component {
@@ -60,18 +61,7 @@ class Productos extends Component {
     if (!isAuthenticated()) {
       content = (
         <Container style={{padding: "2rem"}}>
-          <Message warning size="huge">
-            <center>
-              <Message.Header>
-                Necesitas iniciar sesión para ver los productos
-              </Message.Header>
-              <Message.Content>
-                <Button basic color="red" onClick={this.login} style={{marginTop: "2%"}}>
-                  Iniciar Sesión
-                </Button>
-              </Message.Content>
-            </center>
-          </Message>
+          <LoginRequerido login={this.login} contenido="Se necesita iniciar sesión para ver productos"/>
         </Container>
       );
     } else {
